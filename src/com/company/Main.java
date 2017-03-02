@@ -10,7 +10,7 @@ public class Main {
         Scanner sf = new Scanner(new File("2016seeds.txt"));
 
         int maxIndex = -1;
-        String data [] = new String [1000];
+        String data [] = new String[1000];
         while(sf.hasNextLine())
         {
             maxIndex++;
@@ -18,10 +18,12 @@ public class Main {
         }
         sf.close();
 
+        ArrayList teams = new ArrayList();
         for(int i = 0; i < data.length; i++)
         {
             String toSplit = data[i];
-            String
+            String [] namesandwl = toSplit.split("\t");
+            Teams a = new Teams(namesandwl[0], )
         }
     }
 }
