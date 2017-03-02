@@ -3,7 +3,7 @@ Austin Peay	0.471
 Colorado	0.636
 UConn	0.694
 Maryland	0.743
-South Dakota State		0.400
+South Dakota State	0.400
 California	0.676
 Hawaii	0.812
 Miami (FL)	0.771
