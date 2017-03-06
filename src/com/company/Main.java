@@ -1,5 +1,5 @@
 package com.company;
-
+//http://www.ncaa.com/interactive-bracket/basketball-men/d1
 import java.io.*;
 import java.util.*;
 
@@ -25,6 +25,7 @@ public class Main {
             Teams a = new Teams(namesandwl[0], wl);
             teams.add(a);
         }
+
         ArrayList south = new ArrayList();
         for(int i = 0; i < 16; i++)
         {
@@ -49,95 +50,141 @@ public class Main {
             midwest.add(teams.get(i));
         }
 
-
         System.out.println("March Madness Predictions:");
 
         nextRound(south);
         System.out.println("Round of 32 South:");
-        for (int y = 0; y<south.size(); y++){
-            Teams dummy = (Teams)south.get(y);
-            System.out.println(dummy.name);
-        }
+        printTeams(south);
         System.out.println("");
-
         nextRound(south);
-
         System.out.println("Round of 16 South:");
-        for (int y = 0; y<south.size(); y++){
-            Teams dummy = (Teams)south.get(y);
-            System.out.println(dummy.name);
-        }
+        printTeams(south);
         System.out.println("");
-
         nextRound(south);
-
         System.out.println("Quartefinals South:");
-        for (int y = 0; y<south.size(); y++){
-            Teams dummy = (Teams)south.get(y);
-            System.out.println(dummy.name);
-        }
+        printTeams(south);
         System.out.println("");
-
         nextRound(south);
-
         System.out.println("Semifinals South:");
-        for (int y = 0; y<south.size(); y++){
-            Teams dummy = (Teams)south.get(y);
-            System.out.println(dummy.name);
-        }
+        printTeams(south);
         System.out.println("");
 
         nextRound(west);
         System.out.println("Round of 32 West:");
-        for (int y = 0; y<west.size(); y++){
-            Teams dummy = (Teams)west.get(y);
-            System.out.println(dummy.name);
-        }
+        printTeams(west);
         System.out.println("");
-
         nextRound(west);
-
         System.out.println("Round of 16 West:");
-        for (int y = 0; y<west.size(); y++){
-            Teams dummy = (Teams)west.get(y);
-            System.out.println(dummy.name);
-        }
+        printTeams(west);
         System.out.println("");
-
         nextRound(west);
-
         System.out.println("Quartefinals West:");
-        for (int y = 0; y<west.size(); y++){
-            Teams dummy = (Teams)west.get(y);
-            System.out.println(dummy.name);
-        }
+        printTeams(west);
         System.out.println("");
-
         nextRound(west);
-
         System.out.println("Semifinals West:");
-        for (int y = 0; y<west.size(); y++){
-            Teams dummy = (Teams)west.get(y);
-            System.out.println(dummy.name);
-        }
+        printTeams(west);
         System.out.println("");
+
+        nextRound(east);
+        System.out.println("Round of 32 East:");
+        printTeams(east);
+        System.out.println("");
+        nextRound(east);
+        System.out.println("Round of 16 East:");
+        printTeams(east);
+        System.out.println("");
+        nextRound(east);
+        System.out.println("Quartefinals East:");
+        printTeams(east);
+        System.out.println("");
+        nextRound(east);
+        System.out.println("Semifinals East:");
+        printTeams(east);
+        System.out.println("");
+
+        nextRound(midwest);
+        System.out.println("Round of 32 Midwest:");
+        printTeams(midwest);
+        System.out.println("");
+        nextRound(midwest);
+        System.out.println("Round of 16 Midwest:");
+        printTeams(midwest);
+        System.out.println("");
+        nextRound(midwest);
+        System.out.println("Quartefinals Midwest:");
+        printTeams(midwest);
+        System.out.println("");
+        nextRound(midwest);
+        System.out.println("Semifinals Midwest:");
+        printTeams(midwest);
+        System.out.println("");
+
+        ArrayList leftsemis = new ArrayList();
+        leftsemis.add(south.get(0));
+        leftsemis.add(west.get(0));
+        nextRound(leftsemis);
+        System.out.println("South and West finalist:");
+        printTeams(leftsemis);
+        System.out.println("");
+
+        ArrayList rightsemis = new ArrayList();
+        rightsemis.add(east.get(0));
+        rightsemis.add(midwest.get(0));
+        nextRound(rightsemis);
+        System.out.println("East and Midwest finalist:");
+        printTeams(rightsemis);
+        System.out.println("");
+
+        ArrayList finalists = new ArrayList();
+        finalists.add(leftsemis.get(0));
+        finalists.add(rightsemis.get(0));
+        nextRound(finalists);
+        System.out.println("Champion:");
+        printTeams(finalists);
     }
 
     public static ArrayList nextRound(ArrayList a)
     {
         int x = 0;
-        while(x+1<a.size()){
+        while(x+1 < a.size())
+        {
             Teams team1;
             Teams team2;
             team1 = (Teams)a.get(x);
-            team2 = (Teams)a.get(x+ 1);
-            if (team1.winloss > team2.winloss){
+            team2 = (Teams)a.get(x+1);
+            if (team1.winloss > team2.winloss)
+            {
                 a.remove(x+1);
-            }else /*if (team2.winloss > team1.winloss)*/{
+            }
+            else if (team2.winloss > team1.winloss)
+            {
                 a.remove(x);
+            }
+            else
+            {
+                Random rand = new Random();
+                int r = rand.nextInt(2);
+                if(r == 0)
+                {
+                    a.remove(x+1);
+                }
+                else
+                {
+                    a.remove(x);
+                }
             }
             x++;
         }
         return a;
+    }
+
+    public static void printTeams(ArrayList a)
+    {
+        for(int y = 0; y < a.size(); y++)
+        {
+            Teams dummy = (Teams)a.get(y);
+            System.out.println(dummy.name);
+        }
     }
 }
