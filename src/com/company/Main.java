@@ -1,13 +1,33 @@
 package com.company;
-//http://www.ncaa.com/interactive-bracket/basketball-men/d1
-import java.io.*;
-import java.util.*;
 
-public class Main {
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javax.swing.*;
 
-    public static void main(String[] args) throws IOException{
+
+
+
+public class Main extends Application {
+
+    JFrame mainFrame = new JFrame("Main");
+    JLabel l = new JLabel(new ImageIcon("bracket.jpg"));
+
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
 
         Scanner sf = new Scanner(new File("2016seeds.txt"));
+
+
+
 
         ArrayList data = new ArrayList<String>();
         while(sf.hasNextLine())
@@ -142,7 +162,14 @@ public class Main {
         nextRound(finalists);
         System.out.println("Champion:");
         printTeams(finalists);
-    }
+
+        mainFrame.add(l);
+        l.setSize(801,801);
+        mainFrame.setVisible(true);
+        mainFrame.setSize(800,800);
+        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);}
+
+
 
     public static ArrayList nextRound(ArrayList a)
     {
@@ -181,10 +208,12 @@ public class Main {
 
     public static void printTeams(ArrayList a)
     {
-        for(int y = 0; y < a.size(); y++)
-        {
-            Teams dummy = (Teams)a.get(y);
+        for(int y = 0; y < a.size(); y++) {
+            Teams dummy = (Teams) a.get(y);
             System.out.println(dummy.name);
         }
+
+
+
     }
 }
