@@ -8,14 +8,10 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javax.swing.*;
 
-
-
-
 public class Main extends Application {
 
     JFrame mainFrame = new JFrame("Main");
     JLabel l = new JLabel(new ImageIcon("bracket.jpg"));
-
 
     public static void main(String[] args) {
         launch(args);
@@ -24,10 +20,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Scanner sf = new Scanner(new File("2016seeds.txt"));
-
-
-
+        Scanner sf = new Scanner(new File("2016data.txt"));
 
         ArrayList data = new ArrayList<String>();
         while(sf.hasNextLine())
@@ -40,9 +33,10 @@ public class Main extends Application {
         for(int i = 0; i < data.size(); i++)
         {
             String toSplit = (String)data.get(i);
-            String [] namesandwl = toSplit.split("\t");
-            double wl = Double.parseDouble(namesandwl[1]);
-            Teams a = new Teams(namesandwl[0], wl);
+            String [] indivdata = toSplit.split("\t");
+            double wl = Double.parseDouble(indivdata[1]);
+            double sos = Double.parseDouble(indivdata[2]);
+            Teams a = new Teams(indivdata[0], wl, sos);
             teams.add(a);
         }
 
@@ -81,7 +75,7 @@ public class Main extends Application {
         printTeams(south);
         System.out.println("");
         nextRound(south);
-        System.out.println("Quartefinals South:");
+        System.out.println("Quarterfinals South:");
         printTeams(south);
         System.out.println("");
         nextRound(south);
@@ -98,7 +92,7 @@ public class Main extends Application {
         printTeams(west);
         System.out.println("");
         nextRound(west);
-        System.out.println("Quartefinals West:");
+        System.out.println("Quarterfinals West:");
         printTeams(west);
         System.out.println("");
         nextRound(west);
@@ -115,7 +109,7 @@ public class Main extends Application {
         printTeams(east);
         System.out.println("");
         nextRound(east);
-        System.out.println("Quartefinals East:");
+        System.out.println("Quarterfinals East:");
         printTeams(east);
         System.out.println("");
         nextRound(east);
@@ -132,7 +126,7 @@ public class Main extends Application {
         printTeams(midwest);
         System.out.println("");
         nextRound(midwest);
-        System.out.println("Quartefinals Midwest:");
+        System.out.println("Quarterfinals Midwest:");
         printTeams(midwest);
         System.out.println("");
         nextRound(midwest);
@@ -167,8 +161,8 @@ public class Main extends Application {
         l.setSize(801,801);
         mainFrame.setVisible(true);
         mainFrame.setSize(800,800);
-        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);}
-
+        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
 
 
     public static ArrayList nextRound(ArrayList a)
@@ -180,11 +174,13 @@ public class Main extends Application {
             Teams team2;
             team1 = (Teams)a.get(x);
             team2 = (Teams)a.get(x+1);
-            if (team1.winloss > team2.winloss)
+            double compare1 = team1.winloss * team1.sStrength;
+            double compare2 = team2.winloss * team2.sStrength;
+            if (compare1 > compare2)
             {
                 a.remove(x+1);
             }
-            else if (team2.winloss > team1.winloss)
+            else if (compare2 > compare1)
             {
                 a.remove(x);
             }
@@ -212,8 +208,5 @@ public class Main extends Application {
             Teams dummy = (Teams) a.get(y);
             System.out.println(dummy.name);
         }
-
-
-
     }
 }
