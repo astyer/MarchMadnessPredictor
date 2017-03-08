@@ -11,7 +11,7 @@ import javax.swing.*;
 public class Main extends Application {
 
     JFrame mainFrame = new JFrame("Main");
-    JLabel l = new JLabel(new ImageIcon("bracket.jpg"));
+    JLabel l = new JLabel(new ImageIcon("newbracket.jpg"));
 
     public static void main(String[] args) {
         launch(args);
