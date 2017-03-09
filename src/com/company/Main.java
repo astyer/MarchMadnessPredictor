@@ -1,24 +1,61 @@
 package com.company;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
-import javafx.application.Application;
-import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Path;
+import java.util.*;
 
-public class Main extends Application {
+public class Main {
 
-    JFrame mainFrame = new JFrame("Main");
-    JLabel l = new JLabel(new ImageIcon("newbracket.jpg"));
+    static BufferedImage newImage;
+    static JFrame mainFrame = new JFrame("Main");
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+    public static void main(String[] args) throws IOException{
+        BufferedImage img = null;
+
+
+        try {
+
+            img = ImageIO.read(new File("newbracket.jpg"));
+
+        } catch (IOException e) {
+            System.out.println("blank");
+        }
+        newImage = img;
+
+        Graphics2D g2d = newImage.createGraphics();
+        g2d.drawImage(newImage, 0, 0, null);
+        g2d.setPaint(Color.black);
+        g2d.setFont(new Font("Serif", Font.BOLD, 20));
+        FontMetrics fm = g2d.getFontMetrics();
+        //int x = newImage.getWidth() - fm.stringWidth(s) - 5;
+        //int y = fm.getHeight();
+
+
+        mainFrame.setSize(1000, 1000);
+        mainFrame.getContentPane().add(new JLabel(new ImageIcon(newImage)));
+        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        mainFrame.setVisible(true);
+
+
+        mainFrame.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                double x = e.getX();
+                double y = e.getY();
+                System.out.println(x);
+                System.out.println(y);
+            }
+
+        });
 
         Scanner sf = new Scanner(new File("2016data.txt"));
 
@@ -66,6 +103,15 @@ public class Main extends Application {
 
         System.out.println("March Madness Predictions:");
 
+        int y = 0;
+        int i = 0;
+        while(y<south.size())
+        {
+            Teams dummy = (Teams) south.get(y);
+            g2d.drawString(dummy.name, 100, i+35);
+            i+=26;
+            y++;
+        }
         nextRound(south);
         System.out.println("Round of 32 South:");
         printTeams(south);
@@ -156,12 +202,6 @@ public class Main extends Application {
         nextRound(finalists);
         System.out.println("Champion:");
         printTeams(finalists);
-
-        mainFrame.add(l);
-        l.setSize(801,801);
-        mainFrame.setVisible(true);
-        mainFrame.setSize(800,800);
-        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
 
@@ -210,3 +250,4 @@ public class Main extends Application {
         }
     }
 }
+
