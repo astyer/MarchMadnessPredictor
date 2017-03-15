@@ -1,0 +1,64 @@
+Villanova	0.912	0.5804
+St.Marys	0.875	0.5434
+Wisconsin	0.735	0.5448
+Virginia Tech	0.688	0.5501
+Virginia	0.688	0.5973
+UNC-Wilmington	0.469	0.5148
+Florida	0.750	0.5941
+East Tenn. St.	0.484	0.4932
+SMU	0.676	0.5327
+Providence	0.625	0.5605
+Baylor	0.625	0.5946
+New Mexico St.	0.584	0.4715
+South Carolina	0.464	0.5625
+Marquette	0.613	0.5605
+Duke	0.771	0.5978
+Troy	0.588	0.4740
+Gonzaga	0.970	.5402
+South Dakota St.	0.645	.5002
+Northwestern	0.676	0.5552
+Vanderbilt	0.559	0.6105
+Notre Dame	0.735	0.5732
+Princeton	0.786	0.5028
+West Virginia	0.765	0.5555
+Bucknell	0.765	0.4891
+Maryland	0.742	0.5619
+Xavier	0.618	0.5870
+Florida State	0.758	0.5835
+Florida Glf Cst	0.767	0.4719
+St. Mary's (Cal.)	0.875	0.5434
+VCU	0.765	0.5563
+Arizona	0.882	0.5817
+North Dakota	0.679	0.4482
+Kansas	0.875	0.5811
+N.C Central	0.733	0.3841
+Miami (Fla.)	0.656	0.5684
+Michigan State	0.576	0.5907
+Iowa State	0.697	0.5813
+Nevada	0.824	0.5196
+Purdue	0.781	0.5583
+Vermont	0.849	0.4911
+Creighton	0.727	0.5676
+Rhode Island	0.727	0.5569
+Oregon	0.849	0.5683
+Iona	0.647	0.4990
+Michigan	0.686	0.5789
+Oklahoma State	0.613	0.5847
+Louisville	0.750	0.6087
+Jacksonville St	0.464	0.4692
+North Carolina	0.788	0.5900
+Texas Southern	0.676	0.4475
+Arkansas	0.735	0.5611
+Seton Hall	0.656	0.5638
+Minnesota	0.727	0.5818
+Middle Tenn.	0.879	0.5019
+Butler	0.742	0.5910
+Winthrop	0.800	0.4736
+Cincinnati	0.853	0.5446
+Kansas State	0.606	0.5653
+UCLA	0.879	0.5396
+Kent State	0.618	0.4867
+Dayton	0.767	0.5465
+Wichita State	0.879	0.5079
+Kentucky	0.853	0.5827
+Northern Kentucky	0.688	0.4818
