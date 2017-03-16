@@ -7,7 +7,7 @@ UNC-Wilmington	0.469	0.5148
 Florida	0.750	0.5941
 East Tenn. St.	0.484	0.4932
 SMU	0.676	0.5327
-Providence	0.625	0.5605
+USC	0.727	0.5446
 Baylor	0.625	0.5946
 New Mexico St.	0.584	0.4715
 South Carolina	0.464	0.5625
@@ -31,7 +31,7 @@ VCU	0.765	0.5563
 Arizona	0.882	0.5817
 North Dakota	0.679	0.4482
 Kansas	0.875	0.5811
-N.C Central	0.733	0.3841
+UC Davis	0.625	0.4411
 Miami (Fla.)	0.656	0.5684
 Michigan State	0.576	0.5907
 Iowa State	0.697	0.5813

@@ -1,7 +1,3 @@
-// providence/USC
-// N.C. Central/UC Davis
-// upload github link to classroom
-
 package com.company;
 
 import javax.imageio.ImageIO;
@@ -14,7 +10,6 @@ public class Main {
 
     static BufferedImage newImage;
     static JFrame mainFrame = new JFrame("Main");
-
 
     public static void main(String[] args) throws IOException{
         BufferedImage img = null;
